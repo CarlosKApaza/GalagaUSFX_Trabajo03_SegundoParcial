@@ -142,6 +142,7 @@ void AFacade::GenegarNavesEnemigas()
 			PosicionNavesAcuaticas.Y += 250.0f; // sirve para que las naves esten separadas en el eje X
 
 		}
+		GEngine->AddOnScreenDebugMessage(-1, 6.f, FColor::Green, FString::Printf((TEXT(" EL FACADE GENERO NAVES CORRECTAMENTE"))));
 	}	
 
 }
@@ -210,8 +211,9 @@ void AFacade::DestruirNaves(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 			NaveTerrestreTransporte->RecibirDanio(Cantidad);
 
 			//NaveTerrestreTransporte->Destroy(); // si descomento esto elimina la nave directamente
-		}
+		}	
 	}
+	GEngine->AddOnScreenDebugMessage(-1, 6.f, FColor::Green, FString::Printf((TEXT(" EL FACADE GENERO SISTEMA DE DESTRUCCION CORRECTAMENTE"))));
 }
 
 
@@ -239,6 +241,7 @@ void AFacade::GenerarCapsulas()
 			ACapsula* Capsula = CreadorCapsulas->OrdenarCapsula("CapsulaEnergia", SpawnLocation2, SpawnRotation);
 			SpawnLocation2.Y += 250.0f;
 		}
+		GEngine->AddOnScreenDebugMessage(-1, 6.f, FColor::Green, FString::Printf((TEXT(" EL FACADE GENERO CAPSULAS CORRECTAMENTE"))));
 	}
 }
 
@@ -299,7 +302,8 @@ void AFacade::CrearEnemigosAleatoriamente(TArray<FString> TiposNaves, FVector Po
 			TMNavesEnemigas.Add(NuevaNaveEnemiga, PosicionNaveNueva);
 			TANavesEnemigas.Add(NuevaNaveEnemiga);
 		}
-	}
+	}	
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, FString::Printf((TEXT("SE CREO ALEATORIAMENTE 10 NAVES AEREAS"))));
 }
 
 // (opcional) Función para crear enemigos de un tipo específico NO ES PARTE DEL FACADE

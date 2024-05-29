@@ -19,13 +19,16 @@ AGalagaUSFX_LAB06GameMode::AGalagaUSFX_LAB06GameMode()
 void AGalagaUSFX_LAB06GameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	//---------------------------------------------FACADE----------------------------------------------------------------------------------//
 
 	Facade = GetWorld()->SpawnActor<AFacade>(AFacade::StaticClass());
 	switch (FMath::RandRange(1, 1))
 	{
 	case 1:
 		Facade->GenegarNavesEnemigas();
+		
 		Facade->GenerarCapsulas();
+		
 		break;
 	}
 	
@@ -151,7 +154,7 @@ void AGalagaUSFX_LAB06GameMode::BeginPlay()
 //		Puntaje += recompensaNave;
 //
 //		return recompensaNave; // Si la nave ha sido destruida, retornamos la recompensa
-//	}
+//	}	
 //	return 0; // Si la nave no ha sido destruida, retornamos 0
 //}
 

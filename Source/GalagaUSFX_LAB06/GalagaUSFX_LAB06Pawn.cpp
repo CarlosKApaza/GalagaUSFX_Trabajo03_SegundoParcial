@@ -56,10 +56,10 @@ AGalagaUSFX_LAB06Pawn::AGalagaUSFX_LAB06Pawn()
 	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
 
 	// Movement
-	MoveSpeed = 1000.0f;
+	MoveSpeed = 1000.0f; // movimiento de la navePawn (jugador)
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
-	FireRate = 0.2f;
+	FireRate = 0.6f; // Velocidad del disparo
 	bCanFire = true;
 	
 
@@ -168,7 +168,7 @@ void AGalagaUSFX_LAB06Pawn::ShotTimerExpired()
 void AGalagaUSFX_LAB06Pawn::Energia()
 {
 	EnergiaActiva = true;
-	MoveSpeed = 2000.0f;
+	MoveSpeed = 4000.0f;
 	// Configura un temporizador para llamar a EnergiaFinalizado después de 3 segundos
 	GetWorldTimerManager().SetTimer(TimerHandle_Energia, this, &AGalagaUSFX_LAB06Pawn::EnergiaFinalizado, 10.0f, false);
 }
@@ -179,12 +179,10 @@ void AGalagaUSFX_LAB06Pawn::EnergiaFinalizado()
 	MoveSpeed = 1000.0f;
 
 	// Puedes añadir un mensaje en pantalla para depuración
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, FString::Printf((TEXT("Energía desactivada"))));
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, FString::Printf((TEXT("Energía desactivada"))));
 	SetPlayerInputEnabled(true);
 
 }
-
-
 
 void AGalagaUSFX_LAB06Pawn::BeginPlay()
 {
@@ -198,6 +196,7 @@ void AGalagaUSFX_LAB06Pawn::MovimientoLocoInicio()
 void AGalagaUSFX_LAB06Pawn::MovimientoLocoFinalizado()
 {
 	MovimientoLoco = false; // Desactiva el movimiento loco
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, FString::Printf((TEXT("Movimiento loco desactivado"))));
 	SetPlayerInputEnabled(true); // vuelve a activar el input del jugador
 }
 void AGalagaUSFX_LAB06Pawn::SetPlayerInputEnabled(bool Activo)

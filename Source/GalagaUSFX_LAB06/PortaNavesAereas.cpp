@@ -59,10 +59,10 @@ void APortaNavesAereas::SetMotor(AMotor* motor, FString motorss)
 
 void APortaNavesAereas::CaracteristicasPortaNaveAerea()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("%s"), *Hangars));
-	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("%s"), *CentroMunicioness));
-	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("%s"), *Escudoss));
-	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("%s"), *Motorss));
+	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT(" %s"), *Hangars));
+	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT(" %s"), *CentroMunicioness));
+	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT(" %s"), *Escudoss));
+	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT(" %s"), *Motorss));
 }
 
 //void APortaNavesAereas::RecargarBalas(int32 NumBalasRecargar)
